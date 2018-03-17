@@ -12,12 +12,18 @@ public class NuevoContacto {
     private JTextField emailTextField;
     private JButton guardarButton;
     private JButton cancelarButton;
+    private Agenda agenda;
 
-    public NuevoContacto(Collection<Contacto> contactos) {
+    public NuevoContacto(Agenda agenda) {
+        this.agenda = agenda;
+    }
+
+    public void mostrar(Collection<Contacto> contactos) {
         JFrame frame = new JFrame("Nuevo Contacto");
         frame.setContentPane(panelPrincipal);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.getRootPane().setDefaultButton(guardarButton);
         frame.setVisible(true);
         guardarButton.addActionListener(new ActionListener() {
             @Override
